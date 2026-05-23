@@ -191,6 +191,7 @@ app.get('/health', (req, res) => {
   });
 });
 
+// Removed broken swagger doc route
 app.get('/metrics', metricsHandler);
 
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));

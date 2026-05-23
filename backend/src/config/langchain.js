@@ -152,6 +152,10 @@ export const enhanceResume = async (resumeText, preferences, aiProvider) => {
 
     const prompt = `${systemPrompt}\n\nPlease enhance the following resume:\n\n${resumeText}`;
 
+    const result = await provider.generateContent(prompt);
+    const result = await getModel().generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
     const providerResult = await provider.generateContent(prompt);
 
     return {
@@ -176,6 +180,10 @@ export const generateSummary = async (resumeText, jobRole, aiProvider) => {
 Resume:
 ${resumeText}`;
 
+    const result = await provider.generateContent(prompt);
+    const result = await getModel().generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
     const providerResult = await provider.generateContent(prompt);
 
     return {
@@ -199,6 +207,10 @@ export const suggestImprovements = async (resumeText, jobRole, aiProvider) => {
 Resume:
 ${resumeText}`;
 
+    const result = await provider.generateContent(prompt);
+    const result = await getModel().generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
     const providerResult = await provider.generateContent(prompt);
 
     return {
@@ -255,6 +267,10 @@ Rules:
 Resume:
 ${resumeText}`;
 
+    const result = await provider.generateContent(prompt);
+    const result = await getModel().generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
     const providerResult = await provider.generateContent(prompt);
 
     // Parse JSON from response
@@ -412,6 +428,10 @@ ANALYSIS RULES:
 Resume to analyze:
 ${resumeText}`;
 
+    const result = await provider.generateContent(prompt);
+    const result = await getModel().generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
     const providerResult = await provider.generateContent(prompt);
 
     let analysisData;
@@ -486,6 +506,10 @@ Rules:
 Resume:
 ${resumeText}`;
 
+    const result = await provider.generateContent(prompt);
+    const result = await getModel().generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
     const providerResult = await provider.generateContent(prompt);
 
     let bulletData;
@@ -543,6 +567,10 @@ Focus on the 3-5 most impactful changes.
 Original Resume:
 ${resumeText}`;
 
+    const result = await provider.generateContent(prompt);
+    const result = await getModel().generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
     const providerResult = await provider.generateContent(prompt);
 
     let comparisonData;

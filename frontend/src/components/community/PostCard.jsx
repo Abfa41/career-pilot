@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import { formatDistanceToNow } from 'date-fns';
 import {
   Heart,
@@ -17,9 +17,9 @@ export default function PostCard({ post, currentUser, onLike, onCommentAdded }) 
   const [showFullContent, setShowFullContent] = useState(false);
   const [showComments, setShowComments] = useState(false);
   const [commentCount, setCommentCount] = useState(post.commentCount || 0);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
-  const isOwn = post.author.uid === currentUser?.uid;
+  //const isOwn = post.author.uid === currentUser?.uid;
   const isLiked = post.likes?.some(l => l.uid === currentUser?.uid);
   const contentPreviewLength = 300;
   const shouldTruncate = post.content.length > contentPreviewLength;
@@ -138,7 +138,7 @@ export default function PostCard({ post, currentUser, onLike, onCommentAdded }) 
           {shouldTruncate && !showFullContent ? (
             <>
               <ReactMarkdown className="break-words">
-                {preview.content}
+                {previewText}
               </ReactMarkdown>
               <button
                 onClick={() => setShowFullContent(true)}

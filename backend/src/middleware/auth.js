@@ -1,0 +1,84 @@
+import admin from 'firebase-admin';
+import { ApiError } from './errorHandler.js';
+
+// Middleware to verify Firebase ID token
+export const verifyToken = async (req, res, next) => {
+  try {
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      throw new ApiError(401, 'No token provided');
+    }
+
+    const token = authHeader.split('Bearer ')[1];
+
+    try {
+      const decodedToken = await admin.auth().verifyIdToken(token);
+
+      req.user = {
+        uid: decodedToken.uid,
+        email: decodedToken.email,
+        name: decodedToken.name || decodedToken.email?.split('@')[0],
+        picture: decodedToken.picture || null,
+        emailVerified: decodedToken.email_verified
+      };
+
+      next();
+    } catch (firebaseError) {
+      if (firebaseError?.code === 'app/no-app') {
+        console.error('Firebase Admin not configured');
+
+        throw new ApiError(
+          500,
+          'Firebase Admin not configured'
+        );
+      }
+
+      throw new ApiError(401, 'Invalid or expired token');
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+// Optional auth middleware - doesn't fail if no token
+export const optionalAuth = async (req, res, next) => {
+  try {
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      req.user = null;
+      return next();
+    }
+
+    const token = authHeader.split('Bearer ')[1];
+
+    try {
+      const decodedToken = await admin.auth().verifyIdToken(token);
+
+      req.user = {
+        uid: decodedToken.uid,
+        email: decodedToken.email,
+        name: decodedToken.name || decodedToken.email?.split('@')[0],
+        picture: decodedToken.picture || null,
+        emailVerified: decodedToken.email_verified
+      };
+
+      next();
+    } catch (error) {
+      if (error?.code === 'app/no-app') {
+        console.error('Firebase Admin not configured');
+
+        throw new ApiError(
+          500,
+          'Firebase Admin not configured'
+        );
+      }
+
+      req.user = null;
+      next();
+    }
+  } catch (error) {
+    next(error);
+  }
+};

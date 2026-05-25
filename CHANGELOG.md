@@ -1,3 +1,19 @@
+# [1.14.0](https://github.com/anurag3407/career-pilot/compare/v1.13.0...v1.14.0) (2026-05-25)
+
+
+### Bug Fixes
+
+* convert require to ESM import in screenshotService.js ([a534849](https://github.com/anurag3407/career-pilot/commit/a5348492a7a23de92e21fc5d10167449dd9ae77f))
+* **portfolio/coffee:** improve contrast and visibility for MenuBoard ([620097a](https://github.com/anurag3407/career-pilot/commit/620097aa94095f54e4a9a40cd1d2723bb5a5fbe7))
+* **portfolio/coffee:** replace invalid hover:border-amber-450 with amber-500 ([188a618](https://github.com/anurag3407/career-pilot/commit/188a6189ef7cc95bd1515a6699e26990bbf0aa3f))
+* **portfolio/coffee:** resolve Codeant AI review comments on timeouts and dynamic category selection ([70dff9a](https://github.com/anurag3407/career-pilot/commit/70dff9a3329eba785009ba28b8ed2051e4658f57))
+* **portfolio/coffee:** resolve CodeRabbit review - invalid Tailwind shades & missing fadeIn keyframes ([1bb24cc](https://github.com/anurag3407/career-pilot/commit/1bb24cc69a3a54729bd87633bf2fbadd0bddb700))
+
+
+### Features
+
+* **portfolio:** implement Coffee Shop Theme MenuBoard section [#1515](https://github.com/anurag3407/career-pilot/issues/1515) ([95b1346](https://github.com/anurag3407/career-pilot/commit/95b1346f07ad918a42c18d6a4f96ab2121931c98))
+
 # [1.13.0](https://github.com/anurag3407/career-pilot/compare/v1.12.0...v1.13.0) (2026-05-25)
 
 

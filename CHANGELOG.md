@@ -1,3 +1,15 @@
+# [1.51.0](https://github.com/anurag3407/career-pilot/compare/v1.50.0...v1.51.0) (2026-05-27)
+
+
+### Bug Fixes
+
+* align testimonial ratings with UI screenshot ([bb6c4fa](https://github.com/anurag3407/career-pilot/commit/bb6c4fa3bb8191ee6cbdc5cddeae369c8259a126))
+
+
+### Features
+
+* implement folded testimonials section for Origami Paper theme ([a5e23ee](https://github.com/anurag3407/career-pilot/commit/a5e23ee11399775a2d3277972ba04234387703e8))
+
 # [1.50.0](https://github.com/anurag3407/career-pilot/compare/v1.49.0...v1.50.0) (2026-05-27)
 
 

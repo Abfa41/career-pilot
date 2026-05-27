@@ -15,7 +15,10 @@ const Projects = ({ projects = [] }) => {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  const headingWidth = useMemo(() => Math.max(320, Math.min(760, viewportWidth - 48)), [viewportWidth]);
+  const headingWidth = useMemo(() => {
+    const available = Math.max(0, viewportWidth - 48);
+    return Math.max(Math.min(available, 760), Math.min(160, available));
+  }, [viewportWidth]);
 
   return (
     <section id="projects" className="py-32 px-6 max-w-7xl mx-auto border-t border-slate-950 relative z-20">

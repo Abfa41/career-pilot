@@ -11,7 +11,10 @@ const Testimonials = ({ testimonials = [] }) => {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  const headingWidth = useMemo(() => Math.max(300, Math.min(620, viewportWidth - 56)), [viewportWidth]);
+  const headingWidth = useMemo(() => {
+    const available = Math.max(0, viewportWidth - 56);
+    return Math.max(Math.min(available, 620), Math.min(300, available));
+  }, [viewportWidth]);
 
   return (
     <section className="py-32 px-6 max-w-7xl mx-auto relative z-20 border-t border-slate-950">

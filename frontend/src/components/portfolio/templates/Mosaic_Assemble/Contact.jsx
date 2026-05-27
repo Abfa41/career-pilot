@@ -21,9 +21,12 @@ const MagneticButton = ({ children, href, disabled, className }) => {
   const handleLeave = () => { rawX.set(0); rawY.set(0); };
 
   const Tag = disabled ? motion.button : motion.a;
+  const controlProps = Tag === motion.button
+    ? { disabled: disabled || undefined }
+    : { 'aria-disabled': disabled || undefined };
 
   return (
-    <Tag ref={ref} href={disabled ? undefined : href} style={{ x, y }} onMouseMove={handleMove} onMouseLeave={handleLeave} disabled={disabled || undefined} className={className}>
+    <Tag ref={ref} href={disabled ? undefined : href} style={{ x, y }} onMouseMove={handleMove} onMouseLeave={handleLeave} className={className} {...controlProps}>
       {children}
     </Tag>
   );
@@ -41,7 +44,7 @@ const Contact = ({ socials = {} }) => {
   const headingWidth = useMemo(() => Math.max(280, Math.min(620, viewportWidth - 56)), [viewportWidth]);
 
   return (
-    <section className="py-40 px-6 max-w-4xl mx-auto text-center border-t border-slate-950 relative z-20">
+    <section className="py-40 px-6 max-w-4xl mx-auto text-center border-t border-slate-800 relative z-20">
       <div className="mb-6 flex justify-center">
         <TileSnappingText text="// Connection Terminal" className="text-xs font-mono uppercase tracking-[0.5em] text-cyan-400" baseDelay={0.1} />
       </div>

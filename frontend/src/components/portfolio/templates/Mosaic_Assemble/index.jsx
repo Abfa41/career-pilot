@@ -17,7 +17,7 @@ const MosaicAssemble = () => {
       <Projects projects={data.projects} />
       <Experience experience={data.experience} />
       <Testimonials testimonials={data.testimonials} />
-      <Contact data={data.personal} socials={data.socials} />
+      <Contact socials={data.socials} />
     </div>
   );
 };

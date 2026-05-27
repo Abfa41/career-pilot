@@ -13,7 +13,10 @@ const Skills = ({ skills = [] }) => {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  const headingWidth = useMemo(() => Math.max(280, Math.min(700, viewportWidth - 48)), [viewportWidth]);
+  const headingWidth = useMemo(() => {
+    const available = Math.max(0, viewportWidth - 48);
+    return Math.min(700, available);
+  }, [viewportWidth]);
 
   return (
     <section className="py-32 px-6 max-w-7xl mx-auto relative z-20 border-t border-slate-950">

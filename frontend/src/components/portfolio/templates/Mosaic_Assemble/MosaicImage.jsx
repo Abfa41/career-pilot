@@ -63,21 +63,14 @@ const MosaicImage = ({ src, alt, rows = 5, cols = 5, className = '' }) => {
               },
             }}
             className="relative overflow-hidden shadow-sm"
+            style={{
+              backgroundImage: `url(${src})`,
+              backgroundSize: `${cols * 100}% ${rows * 100}%`,
+              backgroundPosition: `${-tile.c * 100}% ${-tile.r * 100}%`,
+              backgroundRepeat: 'no-repeat',
+            }}
           >
-            <motion.img
-              src={src}
-              alt=""
-              aria-hidden="true"
-              draggable="false"
-              className="absolute max-w-none"
-              style={{
-                width: `${cols * 100}%`,
-                height: `${rows * 100}%`,
-                left: `${-tile.c * 100}%`,
-                top: `${-tile.r * 100}%`,
-                objectFit: 'cover',
-              }}
-            />
+            <span className="sr-only">{alt}</span>
           </motion.div>
         );
       })}

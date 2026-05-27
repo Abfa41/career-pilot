@@ -29,7 +29,7 @@ const Experience = ({ experience = [] }) => {
           {experience.map((exp, i) => {
             const isEven = i % 2 === 0;
             return (
-              <div key={i} className="md:grid md:grid-cols-12 items-center w-full md:mb-12">
+              <div key={i} className="relative md:grid md:grid-cols-12 items-center w-full md:mb-12">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}

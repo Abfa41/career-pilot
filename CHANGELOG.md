@@ -1,3 +1,10 @@
+# [1.58.0](https://github.com/anurag3407/career-pilot/compare/v1.57.0...v1.58.0) (2026-05-28)
+
+
+### Features
+
+* add Gamified XP portfolio template and route ([f6210f7](https://github.com/anurag3407/career-pilot/commit/f6210f77b68ff915259c03c55609c42d1cd240c9))
+
 # [1.57.0](https://github.com/anurag3407/career-pilot/compare/v1.56.1...v1.57.0) (2026-05-28)
 
 

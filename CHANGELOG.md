@@ -1,3 +1,10 @@
+# [1.100.0](https://github.com/anurag3407/career-pilot/compare/v1.99.0...v1.100.0) (2026-05-30)
+
+
+### Features
+
+* implement Watercolor Artistic ResumeCTA component ([8679e65](https://github.com/anurag3407/career-pilot/commit/8679e656f3711d31142b2a18fd43ad7d4ba45518))
+
 # [1.99.0](https://github.com/anurag3407/career-pilot/compare/v1.98.1...v1.99.0) (2026-05-30)
 
 

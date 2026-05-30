@@ -1,3 +1,15 @@
+# [1.99.0](https://github.com/anurag3407/career-pilot/compare/v1.98.1...v1.99.0) (2026-05-30)
+
+
+### Bug Fixes
+
+* add IntersectionObserver fallback and sanitize URLs ([9b47d0a](https://github.com/anurag3407/career-pilot/commit/9b47d0a552cc8d48e35f53f9f816a60b8041768f))
+
+
+### Features
+
+* implement Fantasy RPG ResumeCTA section ([#1488](https://github.com/anurag3407/career-pilot/issues/1488)) ([14f6e69](https://github.com/anurag3407/career-pilot/commit/14f6e699f29b6ff84a896f8519a419338a906d3a))
+
 ## [1.98.1](https://github.com/anurag3407/career-pilot/compare/v1.98.0...v1.98.1) (2026-05-30)
 
 

@@ -25,6 +25,7 @@ import twoFactorRoutes from './routes/twoFactor.js';
 import aiRoutes from './routes/ai.js';
 import emailTrackingRoutes from './routes/emailTracking.js';
 import repoAnalyzerRoutes from './routes/repoAnalyzer.js';
+import projectVisualizerRoutes from './routes/projectVisualizer.route.js';
 import adminRoutes from './routes/admin.js';
 import bullBoardRoutes from './routes/bullBoard.js';
 
@@ -249,9 +250,8 @@ app.use('/api/search', searchRoutes);
 app.use('/api/ai', aiRoutes);
 app.use('/api/email-tracking', emailTrackingRoutes);
 app.use('/api/analyzer', repoAnalyzerRoutes);
-app.use('/api/admin/queues', bullBoardRoutes);
 app.use('/api/admin', adminRoutes);
-
+app.use('/api/admin/queues', bullBoardRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ error: 'Route not found' });

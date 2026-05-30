@@ -99,11 +99,7 @@ function FilterSelect({ value, onChange, options, className = "" }) {
 const TemplateHeroPreview = ({ templateId, portfolioData }) => {
   const Component = useMemo(() => {
     if (!templateId) return null;
-    return React.lazy(() => 
-      import(`../components/portfolio/templates/${templateId}/Hero.jsx`).catch(() => 
-        import(`../components/portfolio/templates/${templateId}/index.jsx`)
-      )
-    );
+    return React.lazy(() => import(`../components/portfolio/templates/${templateId}/index.jsx`));
   }, [templateId]);
 
   if (!templateId) return null;
@@ -224,11 +220,7 @@ function TemplateCard({ template, hovered, onHover, onLeave, onUse, aiDraft }) {
 const TemplatePreviewModal = ({ templateId, isOpen, onClose, portfolioData }) => {
   const Component = useMemo(() => {
     if (!templateId) return null;
-    return React.lazy(() => 
-      import(`../components/portfolio/templates/${templateId}/Hero.jsx`).catch(() => 
-        import(`../components/portfolio/templates/${templateId}/index.jsx`)
-      )
-    );
+    return React.lazy(() => import(`../components/portfolio/templates/${templateId}/index.jsx`));
   }, [templateId]);
 
   if (!isOpen || !templateId) return null;
@@ -478,10 +470,8 @@ export default function TemplateGallery() {
           <h2 className="text-lg font-semibold text-foreground/70">Midnight Gradient Theme</h2>
         </div>
         <div className="overflow-hidden rounded-2xl border border-border">
-          <MidnightGradient portfolioData={aiDraft} />
-        </div>
-      </div>
-
+          <MidnightGradient />
+</div>
       {/* Playing Cards Theme */}
       <div className="mt-12">
         <div className="mb-4 flex items-center gap-3 px-1">
@@ -519,6 +509,8 @@ export default function TemplateGallery() {
         </div>
       </div>
       
+    </div>
+    
     </div>
   );
 }

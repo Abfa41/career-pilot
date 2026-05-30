@@ -11,7 +11,7 @@ const router = express.Router();
 const BULL_BOARD_BASE_PATH = '/api/admin/queues';
 const QUEUE_NAMES = ['job-alerts', 'weekly-digests'];
 
-const isBullBoardEnabled = () => process.env.BULL_BOARD_ENABLED !== 'false';
+const isBullBoardEnabled = () => process.env.BULL_BOARD_ENABLED === 'true';
 
 const safeCompare = (value, expected) => {
   const valueBuffer = Buffer.from(value || '');
@@ -69,10 +69,6 @@ const initializeBullBoard = () => {
     return null;
   }
 
-  if (!process.env.REDIS_URL) {
-    bullBoardError = new Error('REDIS_URL is not configured.');
-    return null;
-  }
 
   try {
     const connection = redisManager.get('bull-board');

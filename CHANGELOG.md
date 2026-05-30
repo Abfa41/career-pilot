@@ -1,3 +1,14 @@
+## [1.100.1](https://github.com/anurag3407/career-pilot/compare/v1.100.0...v1.100.1) (2026-05-30)
+
+
+### Bug Fixes
+
+* clamp fitAll zoom to [MIN_ZOOM, MAX_ZOOM] and guard zero dimensions ([1650a5a](https://github.com/anurag3407/career-pilot/commit/1650a5a2a746a63935ba960427c5c164fbc4bf81))
+* guard project.techStack with Array.isArray before mapping ([4e42f5e](https://github.com/anurag3407/career-pilot/commit/4e42f5eb08a83c6467f4745cf7be77e2271455f7))
+* lift layer expansion state to FigmaCanvas, gate children on toggle ([3a525fe](https://github.com/anurag3407/career-pilot/commit/3a525fec5141b1e7fee17b61565e1cd1b9cfae59))
+* replace ref.current reads during render with useState for cursor flags ([78ae9c0](https://github.com/anurag3407/career-pilot/commit/78ae9c00d632ede1a50fc9ea4259d5c58c3039cc))
+* skip space pan mode when an editable element has focus ([9d787bd](https://github.com/anurag3407/career-pilot/commit/9d787bd988146200956ff2b0a0dff697a154f515))
+
 # [1.100.0](https://github.com/anurag3407/career-pilot/compare/v1.99.0...v1.100.0) (2026-05-30)
 
 

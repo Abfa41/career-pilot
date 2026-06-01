@@ -1,3 +1,15 @@
+# [1.120.0](https://github.com/anurag3407/career-pilot/compare/v1.119.0...v1.120.0) (2026-06-01)
+
+
+### Bug Fixes
+
+* update author to Advik Divekar in templates.js ([b8b4699](https://github.com/anurag3407/career-pilot/commit/b8b4699bd234bc1385500cab1e7ca2d08ed797a3))
+
+
+### Features
+
+* implement Rainbow Gradient portfolio template ([#1929](https://github.com/anurag3407/career-pilot/issues/1929)) ([d963800](https://github.com/anurag3407/career-pilot/commit/d9638001e672e2c918aa4bc003b509650f2ca70a))
+
 # [1.119.0](https://github.com/anurag3407/career-pilot/compare/v1.118.0...v1.119.0) (2026-06-01)
 
 

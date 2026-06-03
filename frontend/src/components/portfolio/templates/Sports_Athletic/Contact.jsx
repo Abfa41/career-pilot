@@ -18,10 +18,11 @@ const CONTACT_INFO = [
   { icon: <MapPin size={16} />, label: 'Location', value: 'Chicago, IL, USA' },
 ];
 
+/* Fix: added href fields to each social so buttons can open links */
 const SOCIALS = [
-  { icon: <Instagram size={18} />, label: '@marcus.stone', platform: 'Instagram' },
-  { icon: <Twitter size={18} />, label: '@marcusstone_23', platform: 'Twitter / X' },
-  { icon: <Youtube size={18} />, label: 'Marcus Stone Official', platform: 'YouTube' },
+  { icon: <Instagram size={18} />, label: '@marcus.stone', platform: 'Instagram', href: 'https://instagram.com' },
+  { icon: <Twitter size={18} />, label: '@marcusstone_23', platform: 'Twitter / X', href: 'https://twitter.com' },
+  { icon: <Youtube size={18} />, label: 'Marcus Stone Official', platform: 'YouTube', href: 'https://youtube.com' },
 ];
 
 function InputField({ label, type = 'text', placeholder, multiline = false }) {
@@ -32,8 +33,7 @@ function InputField({ label, type = 'text', placeholder, multiline = false }) {
     border: 'none', borderBottom: `1px solid ${focused ? S.red : S.border}`,
     color: S.white, fontSize: '0.88rem', outline: 'none',
     transition: 'border-color 0.25s', fontFamily: "'Inter', sans-serif",
-    padding: '0.6rem 0',
-    resize: 'none',
+    padding: '0.6rem 0', resize: 'none',
   };
 
   return (
@@ -47,17 +47,13 @@ function InputField({ label, type = 'text', placeholder, multiline = false }) {
         {label}
       </label>
       {multiline ? (
-        <textarea
-          rows={4} placeholder={placeholder}
+        <textarea rows={4} placeholder={placeholder}
           onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
-          style={{ ...baseStyle }}
-        />
+          style={{ ...baseStyle }} />
       ) : (
-        <input
-          type={type} placeholder={placeholder}
+        <input type={type} placeholder={placeholder}
           onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
-          style={{ ...baseStyle }}
-        />
+          style={{ ...baseStyle }} />
       )}
     </div>
   );
@@ -72,7 +68,6 @@ export default function Contact() {
     <section ref={ref} style={{ background: S.bg, padding: '5rem 0', fontFamily: "'Inter', sans-serif" }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.25rem' }}>
 
-        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, x: -20 }} animate={inView ? { opacity: 1, x: 0 } : {}}
           style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
@@ -83,9 +78,8 @@ export default function Contact() {
           <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, ${S.border}, transparent)` }} />
         </motion.div>
 
-        <div style={{ display: 'grid', gap: '3rem' }} className="lg:grid-cols-2">
+        <div className="grid lg:grid-cols-2" style={{ gap: '3rem' }}>
 
-          {/* Left: info + socials */}
           <motion.div
             initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}>
@@ -103,7 +97,6 @@ export default function Contact() {
               Reach out to Marcus directly or contact his management team.
             </p>
 
-            {/* Contact info cards */}
             <div style={{ marginBottom: '2.5rem' }}>
               {CONTACT_INFO.map((item, i) => (
                 <motion.div key={i}
@@ -131,41 +124,40 @@ export default function Contact() {
               ))}
             </div>
 
-            {/* Social links */}
             <div>
               <p style={{ fontSize: '0.62rem', fontWeight: 800, letterSpacing: '0.22em', color: S.muted, textTransform: 'uppercase', marginBottom: '1rem' }}>
                 Follow the Journey
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                {/* Fix: render as <a> elements with href */}
                 {SOCIALS.map((soc, i) => (
-                  <motion.button key={i}
+                  <motion.a key={i}
+                    href={soc.href} target="_blank" rel="noreferrer"
                     initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
                     transition={{ delay: 0.5 + i * 0.07 }}
-                    whileHover={{ x: 6, borderColor: S.red + '60' }}
+                    whileHover={{ x: 6 }}
                     style={{
                       display: 'flex', alignItems: 'center', gap: '0.75rem',
                       padding: '0.75rem 1rem', background: 'none',
-                      border: `1px solid ${S.border}`, cursor: 'pointer', textAlign: 'left',
-                      transition: 'border-color 0.2s', color: S.muted,
+                      border: `1px solid ${S.border}`, textDecoration: 'none',
+                      color: S.muted, transition: 'border-color 0.2s',
                     }}>
                     <span style={{ color: S.red }}>{soc.icon}</span>
                     <div>
                       <div style={{ fontSize: '0.65rem', fontWeight: 700, color: S.white }}>{soc.label}</div>
                       <div style={{ fontSize: '0.6rem', color: S.muted, marginTop: '0.1rem' }}>{soc.platform}</div>
                     </div>
-                  </motion.button>
+                  </motion.a>
                 ))}
               </div>
             </div>
           </motion.div>
 
-          {/* Right: contact form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.25 }}
             style={{ padding: '2.5rem', background: S.card, border: `1px solid ${S.border}`, position: 'relative', overflow: 'hidden' }}>
 
-            {/* Background speed lines */}
             <div style={{
               position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.025,
               background: 'repeating-linear-gradient(105deg, transparent, transparent 24px, rgba(225,29,72,0.8) 25px, transparent 26px)',
@@ -199,8 +191,7 @@ export default function Contact() {
                   style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.6rem',
                     width: '100%', padding: '1rem',
-                    background: S.red, color: 'white',
-                    border: 'none', cursor: 'pointer',
+                    background: S.red, color: 'white', border: 'none', cursor: 'pointer',
                     fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase',
                     clipPath: 'polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%)',
                   }}>

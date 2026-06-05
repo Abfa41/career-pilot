@@ -32,6 +32,7 @@ import ChatbotPortfolio from "./components/portfolio/templates/Chatbot_Portfolio
 import GamifiedXP from "./components/portfolio/templates/Gamified_XP";
 import TelescopeZoom from "./components/portfolio/templates/Telescope_Zoom";
 import DayNightCycle from './components/portfolio/templates/Day_Night_Cycle/index.jsx';
+import ScrollTape from './components/portfolio/templates/Scroll_Tape';
 import JobTracker from './pages/JobTracker';
 
 const Community = lazy(() => import('./pages/Community'));

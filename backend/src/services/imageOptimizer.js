@@ -10,6 +10,7 @@ import sharp from 'sharp';
  * - quality: number 1-100 (applied to lossy formats)
  */
 export async function optimizeBuffer(buffer, options = {}) {
+  const supportedFormats = ['webp', 'avif', 'jpeg', 'png'];
   const {
     widths = [null], // null means original
     formats = ['webp'],
@@ -18,6 +19,23 @@ export async function optimizeBuffer(buffer, options = {}) {
 
   if (!Buffer.isBuffer(buffer)) {
     throw new TypeError('buffer must be a Buffer');
+  }
+
+  if (!Array.isArray(widths) || widths.some((w) => w !== null && (!Number.isInteger(w) || w <= 0))) {
+    throw new TypeError('widths must be an array of null or positive integers');
+  }
+
+  if (!Array.isArray(formats) || formats.some((f) => typeof f !== 'string')) {
+    throw new TypeError('formats must be an array of strings');
+  }
+
+  const unsupportedFormats = formats.filter((f) => !supportedFormats.includes(f));
+  if (unsupportedFormats.length > 0) {
+    throw new RangeError(`unsupported output format(s): ${unsupportedFormats.join(', ')}`);
+  }
+
+  if (typeof quality !== 'number' || Number.isNaN(quality) || quality < 1 || quality > 100) {
+    throw new RangeError('quality must be a number between 1 and 100');
   }
 
   const results = {};

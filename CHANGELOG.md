@@ -1,3 +1,10 @@
+# [1.176.0](https://github.com/anurag3407/career-pilot/compare/v1.175.0...v1.176.0) (2026-06-06)
+
+
+### Features
+
+* **terminal-cli:** Create Terminal CLI Theme: ResumeCTA Section ([aec8a97](https://github.com/anurag3407/career-pilot/commit/aec8a97c4fb04358d5a50005d6f9ffdf639896a0))
+
 # [1.175.0](https://github.com/anurag3407/career-pilot/compare/v1.174.0...v1.175.0) (2026-06-06)
 
 

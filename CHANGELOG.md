@@ -1,6 +1,22 @@
 # [1.1.0](https://github.com/krishsoni-hub/career-pilot-krishhub/compare/v1.0.0...v1.1.0) (2026-06-06)
 
 
+### Bug Fixes
+
+* resolve merge conflict with upstream main ([c93c199](https://github.com/krishsoni-hub/career-pilot-krishhub/commit/c93c19935290a9402aa165171db4bae98c51f27d))
+
+
+### Features
+
+* add Error 404 Infinite Gallery template [#3262](https://github.com/krishsoni-hub/career-pilot-krishhub/issues/3262) ([85acfe2](https://github.com/krishsoni-hub/career-pilot-krishhub/commit/85acfe2adcf71cc24ba4312d6b9806305cb842d2))
+* add portfolio analytics dashboard ([8d510b8](https://github.com/krishsoni-hub/career-pilot-krishhub/commit/8d510b87b986a06f9353b48143ee75abb5b0c4d9))
+* add resume improvement progress tracker ([3f1d779](https://github.com/krishsoni-hub/career-pilot-krishhub/commit/3f1d7791d9fcdbdbcc87432ee467f6842c6c2f80))
+* add resume PDF export customization options ([d33989c](https://github.com/krishsoni-hub/career-pilot-krishhub/commit/d33989c38fc6d266951e167c4796b070fc873b3e))
+* add smart resume section recommendations ([2c8e2df](https://github.com/krishsoni-hub/career-pilot-krishhub/commit/2c8e2df096deab015b6bae0d4d8b3735e9617066))
+
+# [1.1.0](https://github.com/krishsoni-hub/career-pilot-krishhub/compare/v1.0.0...v1.1.0) (2026-06-06)
+
+
 ### Features
 
 * add Error 404 Infinite Gallery template [#3262](https://github.com/krishsoni-hub/career-pilot-krishhub/issues/3262) ([85acfe2](https://github.com/krishsoni-hub/career-pilot-krishhub/commit/85acfe2adcf71cc24ba4312d6b9806305cb842d2))

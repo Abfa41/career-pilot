@@ -73,6 +73,55 @@ function TemplatePreviewFrame({ label, badgeColor, children }) {
     </div>
   );
 }
+import React, { useState, useRef, useEffect, Suspense, useMemo } from "react";
+import { templates } from '../data/templates';
+import DeployModal from "../components/portfolio/DeployModal";
+import ThemeSelector from "../components/portfolio/ThemeSelector";
+import { useTheme } from "../hooks/useTheme";
+import { motion, AnimatePresence } from "framer-motion";
+import { Moon, Sun, ChevronDown, Check, Eye, Star, Sparkles } from "lucide-react";
+import SwissTypography from "../components/portfolio/templates/Swiss_Typography/index";
+import LiquidGlass from "../components/portfolio/templates/Liquid_Glass/index";
+import MidnightGradient from "../components/portfolio/templates/Midnight_Gradient/index";
+import PlayingCardsPortfolio from "../components/portfolio/templates/Playing_Cards";
+import CherryBlossom from "../components/portfolio/templates/Cherry_Blossom/index";
+import PsychedelicSwirl from "../components/portfolio/templates/Psychedelic_Swirl/index";
+import DesertDunes from "../components/portfolio/templates/Desert_Dunes/index";
+import MemphisPop from "../components/portfolio/templates/Memphis_Pop/index";
+import CassetteMixtape from "../components/portfolio/templates/Cassette_Mixtape/index";
+import TypewriterEffect from "../components/portfolio/templates/Typewriter_Effect/index";
+import ChromaticGlitch from "../components/portfolio/templates/Chromatic_Glitch/index";
+import MagneticDock from "../components/portfolio/templates/Magnetic_Dock/index";
+import Navbar from '../components/Navbar'
+import { X } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
+// import Hero from "../components/portfolio/templates/Holographic/Hero";
+// import ChooseAdventurePortfolio from "../components/portfolio/templates/Choose_Adventure/index";
+// import RetroProjects from "../components/portfolio/templates/2D_Retro_8bit/Projects";
+// import FantasyRPGProjects from "../components/portfolio/templates/Fantasy_RPG/Projects";
+import MorphingBlobs from "../components/portfolio/templates/Morphing_Blobs/index";
+
+const templateInsights = {
+  Swiss_Typography: {
+    ats: "95%",
+    industry: "Software Engineering",
+    popularity: "High",
+    experience: "Entry-Mid",
+  },
+  Liquid_Glass: {
+    ats: "80%",
+    industry: "Creative",
+    popularity: "Medium",
+    experience: "All Levels",
+  },
+  Desert_Dunes: {
+    ats: "85%",
+    industry: "Portfolio",
+    popularity: "High",
+    experience: "Mid-Senior",
+  },
+};
+
 
 function FilterSelect({ value, onChange, options, className = "" }) {
   const [open, setOpen] = useState(false);
@@ -406,6 +455,11 @@ const TemplatePreviewModal = ({ templateId, isOpen, onClose, portfolioData }) =>
         )}
 
 export default function TemplateGallery() {
+const { theme, toggleTheme } = useTheme();
+const [searchParams, setSearchParams] = useSearchParams();
+const previewTemplateId = searchParams.get("preview");
+const [hoveredCard, setHoveredCard] = useState(null);
+const selectedTemplateInfo = templateInsights[hoveredCard];
   const { theme, toggleTheme } = useTheme();
   const [searchParams, setSearchParams] = useSearchParams();
   const previewTemplateId = searchParams.get("preview");
@@ -594,6 +648,54 @@ export default function TemplateGallery() {
           <ThemeSelector selectedTheme={selectedTheme} onSelectTheme={setSelectedTheme} />
         </div>
 
+      <div className="flex flex-wrap items-center gap-3 mb-8">
+        <FilterSelect value={category} onChange={setCategory} options={CATEGORY_OPTIONS} />
+        <FilterSelect value={colorScheme} onChange={setColorScheme} options={COLOR_OPTIONS} />
+        <FilterSelect value={layout} onChange={setLayout} options={LAYOUT_OPTIONS} />
+        <FilterSelect value={sort} onChange={setSort} options={SORT_OPTIONS} className="ml-auto" />
+      </div>
+
+      {selectedTemplateInfo && (
+  <div className="mb-8 rounded-2xl border border-cyan-500/20 bg-card p-5">
+    <h3 className="text-lg font-semibold mb-4">
+      Template Comparison Insights
+    </h3>
+
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div>
+        <p className="text-xs text-muted-foreground">ATS Score</p>
+        <p className="font-bold text-cyan-400">
+          {selectedTemplateInfo.ats}
+        </p>
+      </div>
+
+      <div>
+        <p className="text-xs text-muted-foreground">Industry</p>
+        <p className="font-bold">
+          {selectedTemplateInfo.industry}
+        </p>
+      </div>
+
+      <div>
+        <p className="text-xs text-muted-foreground">Popularity</p>
+        <p className="font-bold">
+          {selectedTemplateInfo.popularity}
+        </p>
+      </div>
+
+      <div>
+        <p className="text-xs text-muted-foreground">Experience Level</p>
+        <p className="font-bold">
+          {selectedTemplateInfo.experience}
+        </p>
+      </div>
+    </div>
+  </div>
+)}
+
+      {sortedTemplates.length === 0 ? (
+        <div className="text-center text-muted-foreground mt-12 text-xl">
+          No templates match the selected criteria.
         <div className="flex flex-wrap items-center gap-3 mb-8">
           <FilterSelect value={category} onChange={setCategory} options={CATEGORY_OPTIONS} />
           <FilterSelect value={colorScheme} onChange={setColorScheme} options={COLOR_OPTIONS} />

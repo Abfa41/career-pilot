@@ -1,3 +1,16 @@
+# [1.194.0](https://github.com/anurag3407/career-pilot/compare/v1.193.0...v1.194.0) (2026-06-08)
+
+
+### Bug Fixes
+
+* added missing imports in TemplateGallery and Desert Dunes template ([ba4d7e6](https://github.com/anurag3407/career-pilot/commit/ba4d7e65d2c0c2def915f3bfe2c636b26084a226))
+* **ai-engine:** improve matcher tokenization and response validation ([e1ead03](https://github.com/anurag3407/career-pilot/commit/e1ead03203fba2185bd15553ff4ce6cac4ca19f7))
+
+
+### Features
+
+* **ai-engine:** implement resume-job description matching service with intelligent skill gap analysis ([09cbc50](https://github.com/anurag3407/career-pilot/commit/09cbc509e519b82ea8f5eacba8e97269530f9c9a))
+
 # 1.0.0 (2026-06-08)
 
 

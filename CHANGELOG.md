@@ -1,3 +1,16 @@
+# [1.191.0](https://github.com/anurag3407/career-pilot/compare/v1.190.0...v1.191.0) (2026-06-08)
+
+
+### Bug Fixes
+
+* resolve coderabbit review comments ([f593b18](https://github.com/anurag3407/career-pilot/commit/f593b189f56326d3a7161c3ee8ccf388c5c2d7fe))
+* resolve react-hooks/purity lint error in Digital_Manifesto_Scroll template ([734c82d](https://github.com/anurag3407/career-pilot/commit/734c82d4eac0123a89819759410d12fedebb9e06))
+
+
+### Features
+
+* implement Digital Manifesto Scroll portfolio template ([35820e5](https://github.com/anurag3407/career-pilot/commit/35820e5056bc279e7eca519a317dcfda0f9fedb0))
+
 ## [1.0.2](https://github.com/Gurkaran18/career-pilot/compare/v1.0.1...v1.0.2) (2026-06-08)
 
 

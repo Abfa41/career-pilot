@@ -1,5 +1,18 @@
 export const templates = [
 {
+  "id": "Morse_Code_Flashing_Decoder",
+  "title": "Morse Code Flashing Decoder",
+  "category": "Portfolio",
+  "colorScheme": "Dark",
+  "layout": "Interactive",
+  "author": "System",
+  "views": 0,
+  "rating": 0,
+  "image": "/template-previews/Morse_Code_Flashing_Decoder.png",
+  "createdAt": "2026-06-09",
+  "isComplete": true
+},
+{
   "id": "Infinite_Zoom_Mandelbrot_Set",
   "title": "Infinite Zoom Mandelbrot Set",
   "category": "Portfolio",

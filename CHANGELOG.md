@@ -1,3 +1,15 @@
+# [1.207.0](https://github.com/anurag3407/career-pilot/compare/v1.206.1...v1.207.0) (2026-06-10)
+
+
+### Bug Fixes
+
+* address review feedback for streaming enhancement ([ce1fa36](https://github.com/anurag3407/career-pilot/commit/ce1fa36e6d2bf5e928b2f98f4cd88b09e44b9c40))
+
+
+### Features
+
+* add real-time AI resume enhancement streaming UI ([e8d6005](https://github.com/anurag3407/career-pilot/commit/e8d600511fd705b0e3292797a56aa0ea1585533a))
+
 ## [1.206.1](https://github.com/anurag3407/career-pilot/compare/v1.206.0...v1.206.1) (2026-06-10)
 
 

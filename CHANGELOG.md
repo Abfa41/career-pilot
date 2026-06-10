@@ -1,3 +1,10 @@
+# [1.213.0](https://github.com/anurag3407/career-pilot/compare/v1.212.0...v1.213.0) (2026-06-10)
+
+
+### Features
+
+* add GDPR data export and deletion endpoints ([d74d5d3](https://github.com/anurag3407/career-pilot/commit/d74d5d33d07abf5dc0d8dff5a348b2bb6cb11b01))
+
 # [1.212.0](https://github.com/anurag3407/career-pilot/compare/v1.211.4...v1.212.0) (2026-06-10)
 
 

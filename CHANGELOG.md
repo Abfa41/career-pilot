@@ -1,3 +1,10 @@
+# [1.212.0](https://github.com/anurag3407/career-pilot/compare/v1.211.4...v1.212.0) (2026-06-10)
+
+
+### Features
+
+* Add Transparent Desktop Overlay OS portfolio template ([963ce71](https://github.com/anurag3407/career-pilot/commit/963ce7116dafcc74e6cf59d20d7cd4ab3cb55e12))
+
 ## [1.211.4](https://github.com/anurag3407/career-pilot/compare/v1.211.3...v1.211.4) (2026-06-10)
 
 

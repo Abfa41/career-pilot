@@ -118,7 +118,7 @@ function ProjectsForm({ data, onChange }) {
 
   const addProject = () => onChange({
     ...data,
-    projects: [...projects, { title: '', description: '', tech: '', liveUrl: '', repoUrl: '', image: '' }]
+    projects: [...projects, { id: Date.now() + Math.random(), title: '', description: '', tech: '', liveUrl: '', repoUrl: '', image: '' }]
   });
 
   const updateProject = (i, field, value) => {
@@ -134,7 +134,7 @@ function ProjectsForm({ data, onChange }) {
   return (
     <div className="flex flex-col gap-4">
       {projects.map((project, i) => (
-        <div key={i} className="p-4 rounded-xl border border-border bg-background/50 flex flex-col gap-3 relative">
+        <div key={project.id || i} className="p-4 rounded-xl border border-border bg-background/50 flex flex-col gap-3 relative">
           <button
             onClick={() => removeProject(i)}
             className="absolute top-3 right-3 text-muted-foreground hover:text-destructive transition"
@@ -167,7 +167,7 @@ function SkillsForm({ data, onChange }) {
 
   const addGroup = () => onChange({
     ...data,
-    groups: [...groups, { category: '', skills: [{ name: '', level: 3 }] }]
+    groups: [...groups, { id: Date.now() + Math.random(), category: '', skills: [{ id: Date.now() + Math.random(), name: '', level: 3 }] }]
   });
 
   const updateGroup = (gi, field, value) => {
@@ -177,7 +177,7 @@ function SkillsForm({ data, onChange }) {
 
   const addSkill = (gi) => {
     const updated = groups.map((g, i) =>
-      i === gi ? { ...g, skills: [...g.skills, { name: '', level: 3 }] } : g
+      i === gi ? { ...g, skills: [...g.skills, { id: Date.now() + Math.random(), name: '', level: 3 }] } : g
     );
     onChange({ ...data, groups: updated });
   };
@@ -206,7 +206,7 @@ function SkillsForm({ data, onChange }) {
   return (
     <div className="flex flex-col gap-4">
       {groups.map((group, gi) => (
-        <div key={gi} className="p-4 rounded-xl border border-border bg-background/50 flex flex-col gap-3">
+        <div key={group.id || gi} className="p-4 rounded-xl border border-border bg-background/50 flex flex-col gap-3">
           <div className="flex items-center justify-between">
             <Input label="Category" value={group.category} onChange={v => updateGroup(gi, 'category', v)} placeholder="e.g. Frontend" />
             <button onClick={() => removeGroup(gi)} className="ml-3 mt-5 text-muted-foreground hover:text-destructive transition">
@@ -251,7 +251,7 @@ function ExperienceForm({ data, onChange }) {
 
   const addEntry = () => onChange({
     ...data,
-    entries: [...entries, { company: '', role: '', start: '', end: '', bullets: [''] }]
+    entries: [...entries, { id: Date.now() + Math.random(), company: '', role: '', start: '', end: '', bullets: [''] }]
   });
 
   const updateEntry = (i, field, value) => {
@@ -287,7 +287,7 @@ function ExperienceForm({ data, onChange }) {
   return (
     <div className="flex flex-col gap-4">
       {entries.map((entry, i) => (
-        <div key={i} className="p-4 rounded-xl border border-border bg-background/50 flex flex-col gap-3 relative">
+        <div key={entry.id || i} className="p-4 rounded-xl border border-border bg-background/50 flex flex-col gap-3 relative">
           <button onClick={() => removeEntry(i)} className="absolute top-3 right-3 text-muted-foreground hover:text-destructive transition">
             <Trash2 className="w-4 h-4" />
           </button>
@@ -362,7 +362,7 @@ export default function SectionEditor({ portfolioId, sectionType, initialData = 
   useEffect(() => {
     originalData.current = initialData;
     setFormData(initialData);
-  }, [sectionType]);
+  }, [sectionType, initialData]);
 
   const handleSave = async () => {
     setSaving(true);

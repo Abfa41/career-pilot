@@ -1,3 +1,10 @@
+## [1.218.1](https://github.com/anurag3407/career-pilot/compare/v1.218.0...v1.218.1) (2026-06-11)
+
+
+### Bug Fixes
+
+* reject passwords with leading or trailing spaces in Login and Register ([d4e6ad7](https://github.com/anurag3407/career-pilot/commit/d4e6ad7715af6b8a07fb726d4d07c17afbd731e5))
+
 # [1.218.0](https://github.com/anurag3407/career-pilot/compare/v1.217.0...v1.218.0) (2026-06-11)
 
 

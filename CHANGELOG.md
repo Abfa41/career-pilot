@@ -1,3 +1,15 @@
+# [1.240.0](https://github.com/anurag3407/career-pilot/compare/v1.239.2...v1.240.0) (2026-06-14)
+
+
+### Features
+
+* add career goal progress tracker dashboard ([7af33eb](https://github.com/anurag3407/career-pilot/commit/7af33eb29150587000b384d84d92a842e2ed7ceb))
+* add portfolio loading performance insights dashboard ([3731654](https://github.com/anurag3407/career-pilot/commit/3731654bcc7caaba06c34ac740280774f232308a))
+* add portfolio social profile optimization assistant ([bc2e4e7](https://github.com/anurag3407/career-pilot/commit/bc2e4e723cb09735d5725c15a47780124bf3fa49))
+* add resume content impact score analytics ([f1a01cd](https://github.com/anurag3407/career-pilot/commit/f1a01cda911c04729acf42310c12cc8a294d555d))
+* add resume duplicate information detector ([df96eb0](https://github.com/anurag3407/career-pilot/commit/df96eb0924ddbd58c678e11c4de4f6e657193e5e))
+* add resume language tone analyzer with professional writing feedback ([5a34064](https://github.com/anurag3407/career-pilot/commit/5a340640209fd0cfc1ada800b7e6f65991d0fa96))
+
 ## [1.239.2](https://github.com/anurag3407/career-pilot/compare/v1.239.1...v1.239.2) (2026-06-14)
 
 

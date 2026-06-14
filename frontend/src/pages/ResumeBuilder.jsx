@@ -263,17 +263,15 @@ useEffect(() => {
   personal,
   skills,
   projects,
-  experience,
-  keywords,
-  foundKeywords.length
+  experience
 ])
 
 // ─────────────────── CONSOLIDATED ATS ASSESSMENT LOOP ───────────────────
 useEffect(() => {
   // 1. Gather all inputs into a clean string representation
-  const resumeText = `${personal?.summary || ''} ${skills?.join(' ') || ''} ${
-    projects?.map(p => `${p.title} ${p.description}`).join(' ') || ''
-  } ${experience?.map(e => `${e.role} ${e.description}`).join(' ') || ''}`.toLowerCase();
+  const resumeText = `${personal?.summary || ''} ${skills || ''} ${
+  projects?.map(p => `${p.name} ${p.description}`).join(' ') || ''
+} ${experience?.map(e => `${e.title} ${e.description}`).join(' ') || ''}`.toLowerCase();
 
   // 2. Define assessment target keywords (moved to component/effect scope correctly)
   const baseKeywords = ["react", "node.js", "javascript", "typescript", "python", "docker", "aws", "git", "ci/cd", "rest api"];

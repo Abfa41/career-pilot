@@ -18,6 +18,7 @@ import {
   validateExperienceStep,
   hasErrors,
 } from '../utils/resumeValidation'
+import { analyzeResumeTone } from "../utils/toneAnalyzer";
 
 const STEPS = [
   { id: 'personal',   title: 'Personal Info', icon: User },
@@ -54,6 +55,9 @@ export default function ResumeBuilder() {
   const [claritySuggestions, setClaritySuggestions] = useState([])
   const [achievementScore, setAchievementScore] = useState(0)
   const [achievementSuggestions, setAchievementSuggestions] = useState([])
+  const [toneScore, setToneScore] = useState(100)
+  const [toneSuggestions, setToneSuggestions] = useState([])
+  
 
   // ── form state ──────────────────────────────────────────────────────────────
   const [personal, setPersonal] = useState({
@@ -164,6 +168,49 @@ const [goalProgress, setGoalProgress] = useState(0)
 
   setReadabilityScore(Math.max(score, 0))
   setClaritySuggestions(suggestions)
+}, [personal, experience, projects])
+
+useEffect(() => {
+  const content = [
+    personal.summary,
+    ...experience.map(e => e.description),
+    ...projects.map(p => p.description)
+  ].join(" ").toLowerCase()
+
+  let score = 100
+  const suggestions = []
+
+  const weakPhrases = {
+    "helped": "contributed to",
+    "worked on": "developed",
+    "stuff": "tasks",
+    "things": "responsibilities",
+    "awesome": "exceptional",
+    "cool": "innovative"
+  }
+
+  Object.entries(weakPhrases).forEach(([weak, professional]) => {
+    if (content.includes(weak)) {
+      score -= 10
+      suggestions.push(
+        `Replace "${weak}" with "${professional}"`
+      )
+    }
+  })
+
+  if (
+    !content.match(
+      /developed|implemented|created|led|optimized|improved/i
+    )
+  ) {
+    score -= 15
+    suggestions.push(
+      "Use stronger professional action verbs."
+    )
+  }
+
+  setToneScore(Math.max(score, 0))
+  setToneSuggestions(suggestions)
 }, [personal, experience, projects])
 
 useEffect(() => {
@@ -1463,6 +1510,39 @@ useEffect(() => {
 
       <ul className="list-disc list-inside text-sm text-muted-foreground">
         {claritySuggestions.map((tip, index) => (
+          <li key={index}>{tip}</li>
+        ))}
+      </ul>
+    </div>
+  )}
+</div>
+
+<div className="mb-6 p-4 rounded-xl border border-border bg-muted">
+  <div className="flex justify-between items-center mb-2">
+    <h3 className="font-semibold">
+      Resume Language Tone Analyzer
+    </h3>
+
+    <span className="text-primary font-bold">
+      {toneScore}/100
+    </span>
+  </div>
+
+  <div className="w-full bg-secondary rounded-full h-3">
+    <div
+      className="bg-primary h-3 rounded-full"
+      style={{ width: `${toneScore}%` }}
+    />
+  </div>
+
+  {toneSuggestions.length > 0 && (
+    <div className="mt-4">
+      <h4 className="font-medium mb-2">
+        Professional Tone Suggestions
+      </h4>
+
+      <ul className="list-disc list-inside text-sm text-muted-foreground">
+        {toneSuggestions.map((tip, index) => (
           <li key={index}>{tip}</li>
         ))}
       </ul>
